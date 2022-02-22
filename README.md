@@ -1,0 +1,1 @@
+Going through Stephen Grider's Modern React with Redux course on Udemy
