@@ -1,6 +1,7 @@
 import React from "react";
 import Accordion from "./Accordion";
-import Search from "./Search";
+import WikiSearch from "./WikiSearch";
+import Dropdown from "./Dropdown";
 
 const items = [
   {
@@ -17,11 +18,27 @@ const items = [
   },
 ];
 
+const dropdownOptions = [
+  {
+    label: "Red",
+    value: "red",
+  },
+  {
+    label: "Blue",
+    value: "blue",
+  },
+  {
+    label: "Green",
+    value: "green",
+  },
+];
+
 const App = () => {
   return (
     <div>
       {/* <Accordion items={items} /> */}
-      <Search />
+      {/* <WikiSearch /> */}
+      <Dropdown options={dropdownOptions}/>
     </div>
   );
 };
