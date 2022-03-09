@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./Accordion";
 import WikiSearch from "./WikiSearch";
 import Dropdown from "./Dropdown";
@@ -34,11 +34,22 @@ const dropdownOptions = [
 ];
 
 const App = () => {
+  const [selected, setSelected] = useState(dropdownOptions[0]);
+  const [showDropdown, setShowDropdown] = useState(true);
   return (
-    <div>
+    <div className="ui container">
       {/* <Accordion items={items} /> */}
       {/* <WikiSearch /> */}
-      <Dropdown options={dropdownOptions}/>
+      <button onClick={() => setShowDropdown(!showDropdown)}>
+        Toggle Dropdown
+      </button>
+      {showDropdown ?
+        <Dropdown
+          options={dropdownOptions}
+          selected={selected}
+          onSelectedChange={setSelected}
+        /> : null
+      }
     </div>
   );
 };
