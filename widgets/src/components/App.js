@@ -3,6 +3,8 @@ import Accordion from "./Accordion";
 import WikiSearch from "./WikiSearch";
 import Dropdown from "./Dropdown";
 import Translate from "./Translate";
+import Route from "./Route";
+import Bar from "./Bar";
 
 const items = [
   {
@@ -38,9 +40,24 @@ const App = () => {
   const [selected, setSelected] = useState(dropdownOptions[0]);
   return (
     <div className="ui container">
-      {/* <Accordion items={items} /> */}
-      {/* <WikiSearch /> */}
-      <Translate />
+      <Bar />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <WikiSearch />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select a color"
+          options={dropdownOptions}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
